@@ -5,7 +5,7 @@ const token = 'NzMwNzU0MjIxMTEyMDMzMjgw.Xwu8_Q.x3ghjDQP-QX42buu6uRDCQS6B9k';
 
 const PREFIX = '~';
 
-var version = '0.3.0-alpha';
+var version = '0.3.2-alpha';
 
 bot.on('ready', () =>{
     console.log('This bot is online!');
@@ -160,10 +160,19 @@ bot.on('message', message =>{
                     const roleembed = new Discord.MessageEmbed()
                     .setTitle('Are you human?')
                     .setColor("RED")
-//                    .setDescription(`<:PogChamp:605307478468722688> - Human`)
                     message.channel.send(roleembed);
                 }
             break;
+            case 'descriptionhumanity':
+                if(message.member.roles.cache.find(r => r.name === "Discord Dev")) {
+                    const roleembed = new Discord.MessageEmbed()
+                    .setTitle('Description React to Get Roles!')
+                    .setColor("RED")
+                    .setDescription(`Mulai per 14 Juli, untuk menghindari bot, fitur berbicara di grup harus melakukan 2 step :\n
+                    1. React dengan emoji - <:Player:732552695734468668> - untuk mendapatkan akses berbicara\n
+                    2. Pilih role game yang kamu minati dengan cara, react di text channel <#732384864254427270>`)
+                    message.channel.send(roleembed);
+                }
             }
     }
     })
