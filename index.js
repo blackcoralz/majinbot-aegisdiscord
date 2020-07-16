@@ -50,7 +50,7 @@ bot.on('message', message =>{
                 .catch(err => console.error);
                 
             }
-            const embedMsg1 = message.embeds.find(msg => msg.title === "Are you human?");
+            const embedMsg1 = message.embeds.find(msg => msg.title === "Description React to Get Roles!");
             if(embedMsg1){
                 message.react('732552695734468668')
                 .catch(err => console.error);
@@ -158,8 +158,11 @@ bot.on('message', message =>{
             case 'reacttotext':
                 if(message.member.roles.cache.find(r => r.name === "Discord Dev")) {
                     const roleembed = new Discord.MessageEmbed()
-                    .setTitle('Are you human?')
+                    .setTitle('Description React to Get Roles!')
                     .setColor("RED")
+                    .setDescription(`Mulai per 14 Juli, untuk menghindari bot, fitur berbicara di grup harus melakukan 2 step :\n
+                    1. React dengan emoji - <:Player:732552695734468668> - untuk mendapatkan akses berbicara\n
+                    2. Pilih role game yang kamu minati dengan cara, react di text channel <#732384864254427270>`)
                     message.channel.send(roleembed);
                 }
             break;
@@ -168,9 +171,6 @@ bot.on('message', message =>{
                     const roleembed = new Discord.MessageEmbed()
                     .setTitle('Description React to Get Roles!')
                     .setColor("RED")
-                    .setDescription(`Mulai per 14 Juli, untuk menghindari bot, fitur berbicara di grup harus melakukan 2 step :\n
-                    1. React dengan emoji - <:Player:732552695734468668> - untuk mendapatkan akses berbicara\n
-                    2. Pilih role game yang kamu minati dengan cara, react di text channel <#732384864254427270>`)
                     message.channel.send(roleembed);
                 }
             }
