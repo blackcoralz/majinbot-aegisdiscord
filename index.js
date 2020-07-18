@@ -73,8 +73,12 @@ bot.on('message', message =>{
             case 'help':
                 if(args[1] === 'coaching'){
                     message.channel.send('jika kamu ingin booking sesi coaching, silahkan hubungi' + ' ' + "<@" + "158130261421195264" + ">" + ' ' + 'yaa kak!')
-                }else if(args[1] === 'aegispass'){
+                }
+                else if(args[1] === 'aegispass'){
                     message.channel.send('jika kamu ingin berlangganan AEGIS PASS, silahkan hubungi' + ' ' + "<@" + "158130261421195264" + ">" + ' ' + 'yaa kak!')
+                }
+                else if(args[1] === 'webinar'){
+                    message.channel.send('jika kamu ingin mendaftar webinar , silahkan hubungi' + ' ' + "<@" + "158130261421195264" + ">" + ' ' + 'yaa kak!')
                 }
                 else if(args[1] === 'party'){
                     message.channel.send('jika kamu sedang mencari party silahkan buka channel' + ' ' + "<#" + "610422464496795669" + ">" + ' ' + 'yaa kak!')
@@ -90,7 +94,7 @@ bot.on('message', message =>{
                     .setTitle('MajinBot Help Commands')
                     .addField('Coaching', '`~help coaching`', true)
                     .addField('AEGIS PASS', '`~help aegispass`', true)
-                    .addField('Webinar', '~help webinar', true)
+                    .addField('Webinar', '`~help webinar`', true)
                     .addField('Look for Party', '`~help party`', true)
                     .addField('Look for Scrim', '`~help scrim`', true)
                     .addField('Look for Teams', '`~help teams`', true)
