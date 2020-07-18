@@ -90,6 +90,7 @@ bot.on('message', message =>{
                     .setTitle('MajinBot Help Commands')
                     .addField('Coaching', '`~help coaching`', true)
                     .addField('AEGIS PASS', '`~help aegispass`', true)
+                    .addField('Webinar', '~help webinar', true)
                     .addField('Look for Party', '`~help party`', true)
                     .addField('Look for Scrim', '`~help scrim`', true)
                     .addField('Look for Teams', '`~help teams`', true)
