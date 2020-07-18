@@ -80,10 +80,10 @@ bot.on('message', message =>{
                     message.channel.send('jika kamu sedang mencari party silahkan buka channel' + ' ' + "<#" + "610422464496795669" + ">" + ' ' + 'yaa kak!')
                 }
                 else if(args[1] === 'scrim'){
-                    message.channel.send('jika kamu sedang mencari party silahkan buka channel' + ' ' + "<#" + "563277189202575371" + ">" + ' ' + 'yaa kak!')
+                    message.channel.send('jika kamu sedang mencari scrim silahkan buka channel' + ' ' + "<#" + "563277189202575371" + ">" + ' ' + 'yaa kak!')
                 }
                 else if(args[1] === 'teams'){
-                    message.channel.send('jika kamu sedang mencari party silahkan buka channel' + ' ' + "<#" + "563268391675232256" + ">" + ' ' + 'yaa kak!')
+                    message.channel.send('jika kamu sedang mencari team silahkan buka channel' + ' ' + "<#" + "563268391675232256" + ">" + ' ' + 'yaa kak!')
                 }
                 else{
                     const helpcommands = new Discord.MessageEmbed()
