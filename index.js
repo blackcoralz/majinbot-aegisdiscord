@@ -55,6 +55,10 @@ bot.on('message', message =>{
                 message.react('732552695734468668')
                 .catch(err => console.error);
             }
+            if(message.content === '**APEX LEGENDS**'){
+                message.react('738104858305101976')
+                .catch(err => console.error);
+            }
         }
     }
     if(message.content.startsWith(PREFIX)){
@@ -171,12 +175,9 @@ bot.on('message', message =>{
                     message.channel.send(roleembed);
                 }
             break;
-            case 'descriptionhumanity':
+            case 'newgame':
                 if(message.member.roles.cache.find(r => r.name === "Discord Dev")) {
-                    const roleembed = new Discord.MessageEmbed()
-                    .setTitle('Description React to Get Roles!')
-                    .setColor("RED")
-                    message.channel.send(roleembed);
+                    message.channel.send('**APEX LEGENDS**');
                 }
             }
     }
