@@ -112,11 +112,22 @@ bot.on('message', message =>{
                 message.channel.send('https://www.youtube.com/channel/UCrI85n5u6BDT5f1JemrIiaQ')
             break;
             case 'user':
-                if(message.author.id === aegispass.user_id && message.member.roles.cache.find(r => r.name === "AEGIS PASS Subs")){
+                var is_found = false;
+                var aegispassuser;
+                for(var i = 0; i < aegispass.length; i++){
+                    var obj = aegispass[i];
+                    var aegis_id = obj["user_id"];
+                    if(message.author.id === aegis_id){
+                        is_found = true;
+                        aegispassuser = obj;
+                        break;
+                    }
+                }
+                if(is_found && message.member.roles.cache.find(r => r.name === "AEGIS PASS Subs")){
                     const embed = new Discord.MessageEmbed()
                     .setTitle('User Information')
                     .addField('Player Name', message.author.username, true)
-                    .addField('AEGIS Pass Valid Until', aegispass.valid_until, true)
+                    .addField('AEGIS Pass Valid Until', aegispassuser["valid_until"], true)
                     .addField('Current Server', message.guild.name, true)
                     .setColor(0x0000ff)
                     .setThumbnail('https://media.discordapp.net/attachments/682109891275522071/732195156266057868/Artboard_1.jpg?width=671&height=671')
