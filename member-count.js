@@ -10,8 +10,8 @@ module.exports = (bot) => {
         const booster = guild.members.cache.filter(m => m.roles.cache.has('735856052251263069')).size;
         const botuser = guild.members.cache.filter(m => m.user.bot).size;
         channel.setName(`📊︱Member : ${guild.memberCount.toLocaleString()}`)
-        channel2.setName(`📊︱Booster : ${booster}`)
-        channel3.setName(`📊︱Bot : ${botuser}`)
+        channel2.setName(`🌟︱Booster : ${booster}`)
+        channel3.setName(`🤖︱Bot : ${botuser}`)
     }
     
     bot.on('guildMemberAdd', (member) => updateMembers(member.guild))
