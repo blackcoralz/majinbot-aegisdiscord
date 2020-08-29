@@ -3,7 +3,7 @@ module.exports = (bot) => {
 
     const updateMembers = (guild) => {
         const channel = guild.channels.cache.get(channelId)
-        channel.setName(`Member : ${guild.memberCount.toLocaleString()}`)
+        channel.setName(`📊︱Member : ${guild.memberCount.toLocaleString()}`)
     }
     
     bot.on('guildMemberAdd', (member) => updateMembers(member.guild))
