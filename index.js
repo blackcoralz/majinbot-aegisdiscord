@@ -1,15 +1,17 @@
 const Discord = require('discord.js');
 const aegispass = require('./aegispass.json');
+const memberCount = require('./member-count');
 const bot = new Discord.Client({partials : ['MESSAGE', 'REACTION', 'CHANNEL','GUILD_MEMBER','USER']});
 const token = 'NzMwNzU0MjIxMTEyMDMzMjgw.Xwu8_Q.x3ghjDQP-QX42buu6uRDCQS6B9k';
 
 const PREFIX = '~';
 
-var version = '0.4.0-alpha';
+var version = '0.4.2-alpha';
 
 bot.on('ready', () =>{
     console.log('This bot is online!');
     bot.user.setActivity("~help", {type : "LISTENING"}).catch(console.error);
+    memberCount(bot)
 })
 
 bot.on('messageReactionAdd', async(reaction, user) => {
