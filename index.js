@@ -1,17 +1,44 @@
 const Discord = require('discord.js');
+const { Mongoose } = require('mongoose');
 const aegispass = require('./aegispass.json');
 const memberCount = require('./member-count');
 const bot = new Discord.Client({partials : ['MESSAGE', 'REACTION', 'CHANNEL','GUILD_MEMBER','USER']});
 const token = 'NzMwNzU0MjIxMTEyMDMzMjgw.Xwu8_Q.x3ghjDQP-QX42buu6uRDCQS6B9k';
+const mongo = require('./mongo')
 
 const PREFIX = '~';
 
-var version = '0.4.7-alpha';
+var version = '0.4.8-alpha';
 
-bot.on('ready', () =>{
+bot.on('ready', async() =>{
     console.log('This bot is online!');
     bot.user.setActivity("~help", {type : "LISTENING"}).catch(console.error);
     memberCount(bot)
+    await mongo().then(Mongoose => {
+        try{
+            console.log('Connected to mongo!')
+        } catch(e){
+
+        }
+        finally{
+            Mongoose.connection.close()
+        }
+    } )
+})
+
+bot.on('guildMemberUpdate', async(oldMember, newMember) =>{
+    const guild = bot.guilds.cache.get('515117013564260353')
+    const updateMembers = (guild) => {
+        if(oldMember.roles!=newMember.roles){
+            if(newMember.roles.cache.has("730629660517335143")){
+                const logchannel = "730355444379549746"
+                const channel = guild.channels.cache.get(logchannel)
+                channel.send("&addrole" + " " + "<@" + newMember.id + ">" + " " + "730629660517335143")
+                channel.send("$natural in 25 days send your subs will end in 5 days! to" + " " + "<@" + newMember.id + ">")
+            }
+        }
+    }
+    updateMembers(guild)
 })
 
 bot.on('messageReactionAdd', async(reaction, user) => {

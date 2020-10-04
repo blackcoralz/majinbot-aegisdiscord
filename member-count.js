@@ -7,6 +7,7 @@ module.exports = (bot) => {
     const channelId3 = '749258366563647498'
     const channelId4 = '749563226462617620'
     const channelId5 = '749568508014362684'
+    const channelId6 = '762225455717154816'
 
     const updateMembers = (guild) => {
         const channel = guild.channels.cache.get(channelId)
@@ -14,6 +15,7 @@ module.exports = (bot) => {
         const channel3 = guild.channels.cache.get(channelId3)
         const channel4 = guild.channels.cache.get(channelId4)
         const channel5 = guild.channels.cache.get(channelId5)
+        const channel6 = guild.channels.cache.get(channelId6)
         const booster = guild.members.cache.filter(m => m.roles.cache.has('735856052251263069')).size;
         const botuser = guild.members.cache.filter(m => m.user.bot).size;
         const usercount = guild.memberCount - botuser;
@@ -29,6 +31,13 @@ module.exports = (bot) => {
             const subscount = data["items"][0]["statistics"]["subscriberCount"]
             var subscountnumber = parseInt(subscount)
             channel5.setName(`🔥︱YT Subs :  ${subscountnumber.toLocaleString()}`);
+        })
+        request(`https://www.instagram.com/aegis.gg/?__a=1`, async function(err, resp, body) {
+            if(err) throw err; 
+            let data = JSON.parse(body);
+            const igcount = data["graphql"]["user"]["edge_followed_by"]["count"]
+            var igcountnumber = parseInt(igcount)
+            channel6.setName(`🔥︱IG Followers :  ${igcountnumber.toLocaleString()}`);
         })
     }
 
