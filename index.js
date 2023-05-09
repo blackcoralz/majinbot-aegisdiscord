@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+require('dotenv').config();
 // const { Mongoose } = require('mongoose');
 const aegispass = require('./aegispass.json');
 const memberCount = require('./member-count');
@@ -222,4 +223,4 @@ bot.on('message', message =>{
             }
     }
     })
-bot.login(token);
+bot.login(process.env.TOKEN);
